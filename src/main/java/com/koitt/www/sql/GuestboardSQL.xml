@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+			PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+			"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+			
+<mapper namespace="gsSQL">
+	<insert id="gEnter" parameterType="gsVO">
+		<selectKey keyProperty="mno" resultType="int" order="BEFORE">
+			SELECT 
+				m_no
+			FROM
+				member
+			where
+				gb_writer = #{writer}
+		</selectKey>
+		INSERT INTO 
+			guestboard  
+		VALUES(
+	    	(SELECT NVL(MAX(m_no) + 1, 10001) FROM guestboard), 
+	    	#{writer}, #{body}, sysdate, #{mno}
+		)
+   </insert>
+   
+   <select id="gSHOW" resultType="gsVO">
+   		SELECT
+			gb_mno mno, gb_body gsbody, to_char(gb_wdate, 'yyyy-MM-dd') sGsDate
+		FROM
+			guestboard
+		WHERE
+			gb_isshow = 'Y'
+   </select>
+</mapper>

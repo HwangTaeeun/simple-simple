@@ -1,0 +1,43 @@
+
+3.회원가입 폼보기
+	요청내용 : /member/join/van
+	파라미터 : 무
+	컨트롤러 : com.koitt.www.controller.Member
+	처리함수 : joinform()
+	응답문서 : com/simple/www/member/join.jsp
+	
+4.회원가입 처리
+	요청내용 : /member/joinProc.van
+	파라미터 : 무
+	컨트롤러 : com.koitt.www.controller.Member
+	처리함수 : joinProc()
+	응답문서 : com/simple/www/main.jsp	--방명록으로 가야하지만 수정안함
+	
+5. 회원 이름 보기 요청
+	요청내용 : /member/showName.van
+	파라미터 : mno(회원번호)
+	컨트롤러 : com.simple.www.controller.Member
+	처리함수 : showName()
+	응답문서 : com/simple/www/member/showName.jsp
+	
+6.회원 아이디 카운트 조회 요청(비동기)
+	요청내용 : /member/idCheck.van
+	파라미터 : id
+	컨트롤러 : com.simple.www.controller.Member
+	처리함수 : idCheck
+	응답문서 : json || text
+	
+7.방명록
+	요청내용 : /member/guestboard.van
+	파라미터 :
+	컨트롤러 : com.koitt.www.controller.Member
+	처리함수 : guestboard
+	
+=======================================================
+#댓글게시판
+1. 게시판 폼보기 요청
+	요청내용	:	/board/reBoardForm.van
+	파라미터	:	(nowPage)
+	컨트롤러	:	com.simple.www.controller.ReBoard
+	처리함수	:	reBoardForm()
+	응답문서	:	/com/simple/www/board/reboard.jsp
